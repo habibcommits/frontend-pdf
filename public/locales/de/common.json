@@ -43,5 +43,25 @@
   "nav": {
     "home": "Startseite",
     "language": "Sprache"
+  },
+  "security": {
+    "title": "Warum uns wählen?",
+    "subtitle": "Ihre Sicherheit und Privatsphäre stehen bei uns an erster Stelle",
+    "germanServers": {
+      "title": "Deutsche Server",
+      "description": "Alle Daten werden ausschließlich auf Servern in Deutschland verarbeitet. Keine Dienste von ausländischen Servern."
+    },
+    "dataProtection": {
+      "title": "DSGVO-konform",
+      "description": "Wir folgen strikt den deutschen Datenschutzbestimmungen und der DSGVO für maximalen Schutz Ihrer Daten."
+    },
+    "noDatabase": {
+      "title": "Keine Datenspeicherung",
+      "description": "Keine Datenbank angeschlossen. Ihre Dateien werden niemals dauerhaft gespeichert."
+    },
+    "autoDelete": {
+      "title": "Automatische Löschung",
+      "description": "Alle hochgeladenen Dateien werden automatisch nach Abschluss der Sitzung vom Server gelöscht."
+    }
   }
 }

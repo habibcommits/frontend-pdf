@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  IMPORTANT: Replace "https://your-domain.com" with your actual domain before deploying to production!
+  For Google Search Console, update all URLs in this file with your real domain name.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://your-domain.com/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://your-domain.com/de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/en"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://your-domain.com/de/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://your-domain.com/de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/en"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://your-domain.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://your-domain.com/de"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/en"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://your-domain.com/de/image-to-pdf</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://your-domain.com/de/image-to-pdf"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/en/image-to-pdf"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://your-domain.com/en/image-to-pdf</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://your-domain.com/de/image-to-pdf"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/en/image-to-pdf"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://your-domain.com/de/merge-pdf</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://your-domain.com/de/merge-pdf"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/en/merge-pdf"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://your-domain.com/en/merge-pdf</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://your-domain.com/de/merge-pdf"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/en/merge-pdf"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://your-domain.com/de/compress-pdf</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://your-domain.com/de/compress-pdf"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/en/compress-pdf"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://your-domain.com/en/compress-pdf</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://your-domain.com/de/compress-pdf"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://your-domain.com/en/compress-pdf"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

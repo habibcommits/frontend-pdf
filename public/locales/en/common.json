@@ -43,5 +43,25 @@
   "nav": {
     "home": "Home",
     "language": "Language"
+  },
+  "security": {
+    "title": "Why Choose Us?",
+    "subtitle": "Your security and privacy are our top priorities",
+    "germanServers": {
+      "title": "German Servers",
+      "description": "All data is processed exclusively on servers in Germany. No services from foreign servers."
+    },
+    "dataProtection": {
+      "title": "GDPR Compliant",
+      "description": "We strictly follow German data protection regulations and GDPR for maximum protection of your data."
+    },
+    "noDatabase": {
+      "title": "No Data Storage",
+      "description": "No database attached. Your files are never stored permanently."
+    },
+    "autoDelete": {
+      "title": "Auto-Delete",
+      "description": "All uploaded files are automatically deleted from the server once your session is complete."
+    }
   }
 }
