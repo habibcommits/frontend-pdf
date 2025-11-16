@@ -19,22 +19,33 @@ Preferred communication style: Simple, everyday language.
 
 **Styling Solution**: Tailwind CSS
 - **Rationale**: Utility-first CSS framework enables rapid development with consistent design
-- **Custom Theme**: Extended with primary (#0066cc) and secondary (#f97316) brand colors
+- **Custom Theme**: Ocean blue color palette with gradient effects
+  - Deep Twilight (#03045e): Primary dark navy shade
+  - French Blue (#023e8a): Bold European blue
+  - Bright Teal (#0077b6): Primary brand color
+  - Blue Green (#0096c7): Dynamic oceanic blue
+  - Turquoise (#00b4d8): Vibrant surf color
+  - Sky Aqua (#48cae4): Secondary brand color
+  - Frosted Blue (#90e0ef): Light accent
+  - Frosted Light (#ade8f4): Subtle highlight
+  - Light Cyan (#caf0f8): Background tint
 - **Responsive Design**: Mobile-first approach using Tailwind's responsive utilities
+- **Visual Features**: Gradient backgrounds, gradient text effects, smooth transitions, hover animations, and modern rounded corners
 
 **Internationalization (i18n)**: next-i18next
 - **Supported Languages**: German (de - default), English (en)
-- **Locale Detection**: Disabled to prevent automatic redirects
+- **Locale Detection**: Disabled to ensure German is always the default landing language
 - **Translation Files**: JSON-based translations in `/public/locales/{locale}/common.json`
 - **Static Generation**: Uses `serverSideTranslations` for static page generation with translations
+- **User Guidance**: One-time language popup appears to first-time visitors, pointing to the language toggle button to help them discover the language switching feature
 
 **Component Architecture**:
-- **Layout Component**: Provides navigation, language switcher, and consistent page structure
+- **Layout Component**: Provides navigation with gradient background, language switcher with visual highlight, and consistent page structure. Includes a one-time language tutorial popup that appears on first visit to help users discover the language toggle feature.
 - **Reusable File Uploaders**: 
-  - Generic `FileUploader` component for image-to-pdf and merge-pdf tools
-  - Specialized `CompressPdfUploader` with quality control settings (DPI, image quality, color mode)
+  - Generic `FileUploader` component for image-to-pdf and merge-pdf tools with ocean blue gradient styling
+  - Specialized `CompressPdfUploader` with quality control settings (DPI, image quality, color mode) and gradient UI elements
 - **Loading States**: `Loader` and `PageLoader` components for processing feedback
-- **File Upload**: react-dropzone library for drag-and-drop functionality
+- **File Upload**: react-dropzone library for drag-and-drop functionality with gradient hover effects and smooth transitions
 
 ### Backend Integration
 
