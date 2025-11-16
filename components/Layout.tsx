@@ -62,7 +62,7 @@ export default function Layout({ children }: LayoutProps) {
 
       <footer className="bg-gray-100 border-t mt-16 py-8">
         <div className="max-w-7xl mx-auto px-4 text-center text-gray-600">
-          <p>© 2025 PDF Tools - Free and easy to use</p>
+          <p>© 2025 PDF Wandler - Free and easy to use</p>
         </div>
       </footer>
     </div>
