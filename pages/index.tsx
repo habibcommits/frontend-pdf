@@ -14,70 +14,79 @@ export default function Home() {
       description: t('tools.imageToPdf.description'),
       href: '/image-to-pdf',
       icon: FiImage,
-      color: 'bg-blue-500',
+      color: 'from-bright-teal to-blue-green',
     },
     {
       title: t('tools.mergePdf.title'),
       description: t('tools.mergePdf.description'),
       href: '/merge-pdf',
       icon: FiLayers,
-      color: 'bg-green-500',
+      color: 'from-turquoise to-sky-aqua',
     },
     {
       title: t('tools.compressPdf.title'),
       description: t('tools.compressPdf.description'),
       href: '/compress-pdf',
       icon: FiArchive,
-      color: 'bg-orange-500',
+      color: 'from-french-blue to-bright-teal',
     },
   ];
 
   return (
     <Layout>
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-16">
+          <h1 className="text-6xl font-bold bg-gradient-to-r from-deep-twilight via-bright-teal to-turquoise bg-clip-text text-transparent mb-6">
             {t('title')}
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
             {t('subtitle')}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mt-12">
+        <div className="grid md:grid-cols-3 gap-8 mt-12">
           {tools.map((tool, index) => (
             <Link
               key={index}
               href={tool.href}
-              className="block p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow border border-gray-200 hover:border-primary"
+              className="group block p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-light-cyan hover:border-sky-aqua hover:-translate-y-2"
             >
-              <div className={`${tool.color} w-12 h-12 rounded-lg flex items-center justify-center mb-4`}>
-                <tool.icon className="text-white text-2xl" />
+              <div className={`bg-gradient-to-br ${tool.color} w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                <tool.icon className="text-white text-3xl" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
+              <h3 className="text-2xl font-bold text-deep-twilight mb-3 group-hover:text-bright-teal transition-colors">
                 {tool.title}
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 leading-relaxed">
                 {tool.description}
               </p>
             </Link>
           ))}
         </div>
 
-        <div className="mt-16 bg-white rounded-lg shadow-md p-8 border border-gray-200">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Über PDF Tools</h2>
-          <div className="grid md:grid-cols-3 gap-6 text-gray-700">
-            <div>
-              <h3 className="font-semibold mb-2">Einfach zu bedienen</h3>
-              <p className="text-sm">Intuitiv gestaltete Tools für maximale Benutzerfreundlichkeit.</p>
+        <div className="mt-20 bg-gradient-to-br from-white to-light-cyan rounded-2xl shadow-xl p-10 border border-frosted-blue/30">
+          <h2 className="text-3xl font-bold bg-gradient-to-r from-deep-twilight to-bright-teal bg-clip-text text-transparent mb-8 text-center">Über PDF Tools</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center p-6 rounded-xl bg-white/50 backdrop-blur-sm border border-sky-aqua/20 hover:border-sky-aqua/50 transition-all">
+              <div className="w-12 h-12 bg-gradient-to-br from-turquoise to-sky-aqua rounded-full mx-auto mb-4 flex items-center justify-center text-white text-xl font-bold">
+                ✓
+              </div>
+              <h3 className="font-bold text-deep-twilight mb-3 text-lg">Einfach zu bedienen</h3>
+              <p className="text-gray-600">Intuitiv gestaltete Tools für maximale Benutzerfreundlichkeit.</p>
             </div>
-            <div>
-              <h3 className="font-semibold mb-2">100% kostenlos</h3>
-              <p className="text-sm">Alle Tools können Sie kostenlos und ohne Einschränkungen nutzen.</p>
+            <div className="text-center p-6 rounded-xl bg-white/50 backdrop-blur-sm border border-sky-aqua/20 hover:border-sky-aqua/50 transition-all">
+              <div className="w-12 h-12 bg-gradient-to-br from-bright-teal to-blue-green rounded-full mx-auto mb-4 flex items-center justify-center text-white text-xl font-bold">
+                €
+              </div>
+              <h3 className="font-bold text-deep-twilight mb-3 text-lg">100% kostenlos</h3>
+              <p className="text-gray-600">Alle Tools können Sie kostenlos und ohne Einschränkungen nutzen.</p>
             </div>
-            <div>
-              <h3 className="font-semibold mb-2">Sicherheit</h3>
-              <p className="text-sm">Dateien werden verschlüsselt übertragen und automatisch gelöscht.</p>
+            <div className="text-center p-6 rounded-xl bg-white/50 backdrop-blur-sm border border-sky-aqua/20 hover:border-sky-aqua/50 transition-all">
+              <div className="w-12 h-12 bg-gradient-to-br from-french-blue to-bright-teal rounded-full mx-auto mb-4 flex items-center justify-center text-white text-xl font-bold">
+                🔒
+              </div>
+              <h3 className="font-bold text-deep-twilight mb-3 text-lg">Sicherheit</h3>
+              <p className="text-gray-600">Dateien werden verschlüsselt übertragen und automatisch gelöscht.</p>
             </div>
           </div>
         </div>

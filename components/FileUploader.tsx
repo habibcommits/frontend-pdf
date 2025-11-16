@@ -69,29 +69,31 @@ export default function FileUploader({ endpoint, accept, multiple = true, title 
 
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <h1 className="text-3xl font-bold text-center mb-8 text-gray-800">{title}</h1>
+      <h1 className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-deep-twilight to-bright-teal bg-clip-text text-transparent">{title}</h1>
       
       <div
         {...getRootProps()}
-        className={`border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-colors ${
+        className={`border-2 border-dashed rounded-2xl p-12 text-center cursor-pointer transition-all duration-300 ${
           isDragActive
-            ? 'border-primary bg-blue-50'
-            : 'border-gray-300 hover:border-primary hover:bg-gray-50'
+            ? 'border-sky-aqua bg-gradient-to-br from-light-cyan to-frosted-light shadow-lg scale-105'
+            : 'border-frosted-blue hover:border-turquoise hover:bg-gradient-to-br hover:from-light-cyan/50 hover:to-white hover:shadow-lg'
         }`}
       >
         <input {...getInputProps()} />
-        <FiUpload className="mx-auto text-5xl text-gray-400 mb-4" />
-        <p className="text-gray-600">{t('upload.dragDrop')}</p>
+        <div className="bg-gradient-to-br from-bright-teal to-turquoise w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+          <FiUpload className="text-white text-4xl" />
+        </div>
+        <p className="text-gray-700 font-medium text-lg">{t('upload.dragDrop')}</p>
       </div>
 
       {files.length > 0 && !processing && (
         <div className="mt-6">
-          <h3 className="font-semibold mb-2">
+          <h3 className="font-bold text-deep-twilight mb-3 text-lg">
             {multiple ? t('upload.selectFiles') : 'Selected File'}:
           </h3>
-          <ul className="bg-gray-100 rounded p-4">
+          <ul className="bg-gradient-to-br from-light-cyan to-white rounded-xl p-5 border border-frosted-blue shadow-md">
             {files.map((file, index) => (
-              <li key={index} className="text-sm text-gray-700">
+              <li key={index} className="text-gray-700 py-1">
                 {file.name} ({(file.size / 1024).toFixed(2)} KB)
               </li>
             ))}
@@ -100,7 +102,7 @@ export default function FileUploader({ endpoint, accept, multiple = true, title 
           <button
             onClick={handleUpload}
             disabled={processing}
-            className="mt-4 w-full bg-primary text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+            className="mt-6 w-full bg-gradient-to-r from-bright-teal to-turquoise text-white py-4 px-6 rounded-xl font-bold text-lg hover:from-turquoise hover:to-sky-aqua disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
           >
             Process
           </button>
@@ -108,26 +110,26 @@ export default function FileUploader({ endpoint, accept, multiple = true, title 
       )}
 
       {processing && (
-        <div className="mt-8 p-8 bg-white border border-gray-200 rounded-lg shadow-sm">
+        <div className="mt-8 p-8 bg-gradient-to-br from-white to-light-cyan border border-frosted-blue rounded-2xl shadow-lg">
           <Loader size="large" text={t('upload.processing')} />
         </div>
       )}
 
       {error && (
-        <div className="mt-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+        <div className="mt-6 p-5 bg-red-50 border-2 border-red-400 text-red-700 rounded-xl font-medium shadow-md">
           {error}
         </div>
       )}
 
       {downloadUrl && (
-        <div className="mt-6 p-6 bg-green-100 border border-green-400 rounded-lg">
-          <p className="text-green-800 font-semibold mb-4">Processing complete!</p>
+        <div className="mt-6 p-8 bg-gradient-to-br from-turquoise/10 to-sky-aqua/10 border-2 border-turquoise rounded-2xl shadow-xl">
+          <p className="text-deep-twilight font-bold mb-6 text-lg">Processing complete!</p>
           <a
             href={downloadUrl}
             download="processed.pdf"
-            className="inline-flex items-center gap-2 bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors"
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-turquoise to-sky-aqua text-white py-4 px-8 rounded-xl font-bold hover:from-sky-aqua hover:to-frosted-blue transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
           >
-            <FiDownload />
+            <FiDownload className="text-xl" />
             {t('upload.download')}
           </a>
         </div>
