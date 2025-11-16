@@ -114,3 +114,61 @@ Preferred communication style: Simple, everyday language.
 - **Separate Backend API**: External service (referenced as "backend-railway repository") handles actual PDF processing
 - **Connection**: Frontend proxies API requests through Next.js rewrites
 - **No Database**: Frontend is stateless; all file processing is handled by backend API
+
+## SEO and Security Features
+
+### SEO Assets (November 2025)
+The application includes comprehensive SEO optimization for Google Search Console indexing:
+
+**Sitemap**: `/public/sitemap.xml`
+- Includes all pages (home, image-to-pdf, merge-pdf, compress-pdf)
+- Supports bilingual hreflang tags for German (de) and English (en)
+- **⚠️ IMPORTANT**: Replace `https://your-domain.com` with your actual production domain before deploying
+
+**Robots.txt**: `/public/robots.txt`
+- Allows all search engines to crawl the site
+- References sitemap.xml for indexing
+- **⚠️ IMPORTANT**: Replace `https://your-domain.com` with your actual production domain before deploying
+
+**Meta Tags**: Added to all pages (index, image-to-pdf, merge-pdf, compress-pdf)
+- Title and description tags optimized for German audience
+- Open Graph tags for social media sharing
+- Twitter Card tags for enhanced Twitter previews
+- Canonical URLs for duplicate content prevention
+- German-focused keywords (PDF Tools, PDF konvertieren, PDF zusammenführen, PDF komprimieren, DSGVO, Deutschland)
+- **⚠️ IMPORTANT**: Replace `https://your-domain.com` in canonical URLs with your actual production domain before deploying
+
+### Security Section (November 2025)
+A prominent "Warum uns wählen?" (Why Choose Us) section appears on the homepage above the footer, emphasizing German data protection and privacy:
+
+**Key Messages** (fully bilingual):
+1. **German Servers Only**: All processing happens exclusively on servers located in Germany
+2. **GDPR/DSGVO Compliance**: Full compliance with German and European data protection laws
+3. **No Database Storage**: Files are never stored in databases; processing happens in memory only
+4. **Automatic Deletion**: All files are automatically deleted after processing sessions end
+
+**Visual Design**: 
+- Ocean blue gradient background (deep-twilight to bright-teal)
+- Four feature cards with icons (FiServer, FiShield, FiDatabase, FiTrash2)
+- Hover effects and smooth transitions
+- White text on gradient background for maximum visibility
+
+**Translation Keys** (in `/public/locales/{locale}/common.json`):
+- `security.title`, `security.subtitle`
+- `security.germanServers.title/description`
+- `security.dataProtection.title/description`
+- `security.noDatabase.title/description`
+- `security.autoDelete.title/description`
+
+## Deployment Notes
+
+### Before Production Deployment
+
+1. **Update Domain URLs**: Search and replace all instances of `https://your-domain.com` in:
+   - `/public/sitemap.xml` (all `<loc>` and `<xhtml:link>` tags)
+   - `/public/robots.txt` (Sitemap URL)
+   - All page files with canonical URLs (`pages/index.tsx`, `pages/image-to-pdf.tsx`, `pages/merge-pdf.tsx`, `pages/compress-pdf.tsx`)
+
+2. **Set Environment Variable**: Configure `NEXT_PUBLIC_BACKEND_URL` to point to your production backend API
+
+3. **Google Search Console**: After deployment, submit your sitemap at `https://your-domain.com/sitemap.xml` to Google Search Console for indexing
