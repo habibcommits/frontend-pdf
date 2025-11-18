@@ -124,14 +124,19 @@ Preferred communication style: Simple, everyday language.
 
 ### Blog System (November 2025)
 
-**Markdown-Based Blog**: File-system based blog with auto-discovery
+**Markdown-Based Blog**: File-system based blog with auto-discovery and full bilingual support
 - **Content Location**: All blog posts stored in `/content/blog/` as `.md` files
-- **Frontmatter Support**: Each post uses YAML frontmatter for metadata (title, date)
+- **Frontmatter Support**: Each post uses YAML frontmatter for metadata (title, date, and optional German translations)
 - **Auto-Discovery**: New posts automatically appear when `.md` files are added to `/content/blog/`
 - **Static Generation**: Blog pages use getStaticProps/getStaticPaths for optimal performance
+- **Bilingual Content**: Posts automatically display German or English content based on selected site locale
 
 **Technical Implementation**:
 - **lib/blog.ts**: Server-side utilities for reading/parsing markdown files (uses fs, path, gray-matter, remark)
+  - Processes both English content (main markdown body) and German content (contentDe frontmatter field)
+  - Generates excerpts for both languages automatically
+  - Converts markdown to HTML for both English and German content
+  - Safely handles posts with or without German translations (falls back to English)
 - **lib/blogUtils.ts**: Client-safe utilities (formatDate function for date rendering)
 - **Markdown Processing**: gray-matter for frontmatter, remark + remark-html for markdown-to-HTML conversion
 - **Date Handling**: Robust validation handles missing/invalid dates without crashes; posts sorted newest-first with undated posts at end
@@ -140,15 +145,46 @@ Preferred communication style: Simple, everyday language.
 
 **Blog Pages**:
 - **/blog**: Listing page with post titles, dates, excerpts, and read-more links
+  - Uses `router.locale` to display German titles/excerpts when locale is 'de'
+  - Falls back to English content when German translation is missing
 - **/blog/[slug]**: Individual post pages with full markdown content rendering
+  - Automatically displays German content when site is in German locale
+  - Seamlessly switches between languages when user toggles locale
 - **Navigation**: Blog link integrated into Layout component with i18n support
 - **Translation Keys**: Added to both German and English locale files (`blog.title`, `blog.readMore`, `blog.backToBlog`, etc.)
+
+**Bilingual Content Format**:
+Posts support optional German translations through frontmatter fields:
+- **titleDe**: German translation of the title
+- **contentDe**: German markdown content (in YAML block format using `|`)
+- **excerptDe**: Auto-generated from German content, or falls back to English excerpt
 
 **Content Management**:
 - Upload new `.md` files to `/content/blog/` via GitHub
 - Required frontmatter: `title` (string), `date` (ISO format like "2025-01-20")
+- Optional frontmatter: `titleDe` (German title), `contentDe: |` (German content in YAML block format)
 - Optional slug: filename becomes URL slug (e.g., `my-post.md` → `/blog/my-post`)
 - Posts appear automatically after deployment with no code changes needed
+- See `/content/blog/upload-blog.md` for comprehensive bilingual upload guide
+
+**Example Bilingual Post**:
+```markdown
+---
+title: "Welcome to PDF Wandler"
+titleDe: "Willkommen bei PDF Wandler"
+date: "2025-01-15"
+contentDe: |
+  Dies ist der deutsche Inhalt...
+  
+  ## Deutsche Überschrift
+  Deutscher Text hier.
+---
+
+This is the English content...
+
+## English Heading
+English text here.
+```
 
 ## SEO and Security Features
 
