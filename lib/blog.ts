@@ -9,9 +9,12 @@ const postsDirectory = path.join(process.cwd(), 'content/blog');
 export interface BlogPost {
   slug: string;
   title: string;
+  titleDe?: string;
   date: string;
   content: string;
+  contentDe?: string;
   excerpt?: string;
+  excerptDe?: string;
 }
 
 export async function getAllPosts(): Promise<BlogPost[]> {
@@ -34,12 +37,23 @@ export async function getAllPosts(): Promise<BlogPost[]> {
 
         const excerpt = content.split('\n\n')[0].substring(0, 200);
 
+        let contentDeHtml = '';
+        let excerptDe = '';
+        if (data.contentDe) {
+          const processedContentDe = await remark().use(html).process(data.contentDe);
+          contentDeHtml = processedContentDe.toString();
+          excerptDe = data.contentDe.split('\n\n')[0].substring(0, 200);
+        }
+
         return {
           slug,
           title: data.title || slug,
+          titleDe: data.titleDe,
           date: data.date || '',
           content: contentHtml,
+          contentDe: contentDeHtml,
           excerpt: excerpt,
+          excerptDe: excerptDe,
         };
       })
   );
@@ -65,11 +79,19 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     const processedContent = await remark().use(html).process(content);
     const contentHtml = processedContent.toString();
 
+    let contentDeHtml = '';
+    if (data.contentDe) {
+      const processedContentDe = await remark().use(html).process(data.contentDe);
+      contentDeHtml = processedContentDe.toString();
+    }
+
     return {
       slug,
       title: data.title || slug,
+      titleDe: data.titleDe,
       date: data.date || '',
       content: contentHtml,
+      contentDe: contentDeHtml,
     };
   } catch (error) {
     return null;

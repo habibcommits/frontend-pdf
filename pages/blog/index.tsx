@@ -2,6 +2,7 @@ import { GetStaticProps } from 'next';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import Layout from '../../components/Layout';
 import { getAllPosts, BlogPost } from '../../lib/blog';
 import { formatDate } from '../../lib/blogUtils';
@@ -12,6 +13,8 @@ interface BlogIndexProps {
 
 export default function BlogIndex({ posts }: BlogIndexProps) {
   const { t } = useTranslation('common');
+  const router = useRouter();
+  const locale = router.locale || 'en';
 
   return (
     <Layout>
@@ -33,7 +36,7 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
               >
                 <Link href={`/blog/${post.slug}`}>
                   <h2 className="text-2xl font-bold text-blue-600 hover:text-blue-800 mb-2">
-                    {post.title}
+                    {locale === 'de' && post.titleDe ? post.titleDe : post.title}
                   </h2>
                 </Link>
                 {post.date && formatDate(post.date) && (
@@ -41,8 +44,10 @@ export default function BlogIndex({ posts }: BlogIndexProps) {
                     {formatDate(post.date)}
                   </p>
                 )}
-                {post.excerpt && (
-                  <p className="text-gray-700 mb-4">{post.excerpt}...</p>
+                {(locale === 'de' ? post.excerptDe : post.excerpt) && (
+                  <p className="text-gray-700 mb-4">
+                    {locale === 'de' && post.excerptDe ? post.excerptDe : post.excerpt}...
+                  </p>
                 )}
                 <Link
                   href={`/blog/${post.slug}`}
