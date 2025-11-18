@@ -42,7 +42,14 @@
   },
   "nav": {
     "home": "Home",
-    "language": "Language"
+    "language": "Language",
+    "blog": "Blog"
+  },
+  "blog": {
+    "title": "Blog",
+    "noPosts": "No blog posts yet. Check back soon!",
+    "readMore": "Read more",
+    "backToBlog": "Back to Blog"
   },
   "security": {
     "title": "Why Choose Us?",

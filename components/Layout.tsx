@@ -45,6 +45,9 @@ export default function Layout({ children }: LayoutProps) {
               <Link href="/" className="text-white/90 hover:text-sky-aqua transition-colors font-medium">
                 {t('nav.home')}
               </Link>
+              <Link href="/blog" className="text-white/90 hover:text-sky-aqua transition-colors font-medium">
+                {t('nav.blog', 'Blog')}
+              </Link>
               
               <div className="relative">
                 <div className="flex bg-white/10 backdrop-blur-sm rounded-lg p-1 border border-white/20">

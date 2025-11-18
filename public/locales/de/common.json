@@ -42,7 +42,14 @@
   },
   "nav": {
     "home": "Startseite",
-    "language": "Sprache"
+    "language": "Sprache",
+    "blog": "Blog"
+  },
+  "blog": {
+    "title": "Blog",
+    "noPosts": "Noch keine Blog-Beiträge. Schauen Sie bald wieder vorbei!",
+    "readMore": "Weiterlesen",
+    "backToBlog": "Zurück zum Blog"
   },
   "security": {
     "title": "Warum uns wählen?",
