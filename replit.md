@@ -68,6 +68,8 @@ Preferred communication style: Simple, everyday language.
 - `/image-to-pdf`: Image to PDF conversion tool
 - `/merge-pdf`: PDF merging tool
 - `/compress-pdf`: PDF compression tool with quality controls
+- `/blog`: Blog listing page showing all posts
+- `/blog/[slug]`: Dynamic blog post pages
 
 **Locale-aware URLs**: Each page supports `/de/` and `/en/` prefixes for language-specific content
 
@@ -105,6 +107,11 @@ Preferred communication style: Simple, everyday language.
 ### HTTP Client
 - **axios** (1.6.5): Promise-based HTTP client for API requests with multipart/form-data support
 
+### Markdown and Content Processing
+- **gray-matter** (latest): YAML frontmatter parser for blog posts
+- **remark** (latest): Markdown processor
+- **remark-html** (latest): Converts markdown to HTML
+
 ### Development Tools
 - **TypeScript** (5.3.3): Static type checking
 - **ESLint**: Code linting with Next.js configuration
@@ -114,6 +121,34 @@ Preferred communication style: Simple, everyday language.
 - **Separate Backend API**: External service (referenced as "backend-railway repository") handles actual PDF processing
 - **Connection**: Frontend proxies API requests through Next.js rewrites
 - **No Database**: Frontend is stateless; all file processing is handled by backend API
+
+### Blog System (November 2025)
+
+**Markdown-Based Blog**: File-system based blog with auto-discovery
+- **Content Location**: All blog posts stored in `/content/blog/` as `.md` files
+- **Frontmatter Support**: Each post uses YAML frontmatter for metadata (title, date)
+- **Auto-Discovery**: New posts automatically appear when `.md` files are added to `/content/blog/`
+- **Static Generation**: Blog pages use getStaticProps/getStaticPaths for optimal performance
+
+**Technical Implementation**:
+- **lib/blog.ts**: Server-side utilities for reading/parsing markdown files (uses fs, path, gray-matter, remark)
+- **lib/blogUtils.ts**: Client-safe utilities (formatDate function for date rendering)
+- **Markdown Processing**: gray-matter for frontmatter, remark + remark-html for markdown-to-HTML conversion
+- **Date Handling**: Robust validation handles missing/invalid dates without crashes; posts sorted newest-first with undated posts at end
+- **Styling**: Custom prose CSS classes in `styles/globals.css` for beautiful markdown rendering
+- **Webpack Configuration**: `next.config.js` includes fallback for fs/path to prevent client-side bundling errors
+
+**Blog Pages**:
+- **/blog**: Listing page with post titles, dates, excerpts, and read-more links
+- **/blog/[slug]**: Individual post pages with full markdown content rendering
+- **Navigation**: Blog link integrated into Layout component with i18n support
+- **Translation Keys**: Added to both German and English locale files (`blog.title`, `blog.readMore`, `blog.backToBlog`, etc.)
+
+**Content Management**:
+- Upload new `.md` files to `/content/blog/` via GitHub
+- Required frontmatter: `title` (string), `date` (ISO format like "2025-01-20")
+- Optional slug: filename becomes URL slug (e.g., `my-post.md` → `/blog/my-post`)
+- Posts appear automatically after deployment with no code changes needed
 
 ## SEO and Security Features
 
